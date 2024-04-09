@@ -1,0 +1,6 @@
+@Acebeat.Gateway_HostAddress = http://localhost:5139
+
+GET {{Acebeat.Gateway_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
