@@ -1,0 +1,17 @@
+FROM mcr.microsoft.com/dotnet/sdk AS build
+
+WORKDIR /app
+
+COPY almond.sln Directory.Build.props Directory.packages.props ./
+COPY src/Acebeat.Gateway ./src/Acebeat.Gateway
+COPY src/Almond.Application ./src/Almond.Application
+
+RUN dotnet restore
+RUN dotnet publish
+
+FROM mcr.microsoft.com/dotnet/sdk AS run
+
+WORKDIR /app
+
+COPY --from=build /app/src/Acebeat.Gateway/bin/Release/net8.0/publish/ ./
+CMD [ "dotnet", "Acebeat.Gateway.dll" ]

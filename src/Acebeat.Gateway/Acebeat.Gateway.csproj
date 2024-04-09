@@ -6,4 +6,8 @@
     <PackageReference Include="Yarp.ReverseProxy" Version="2.1.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Almond.Application\Almond.Application.csproj" />
+  </ItemGroup>
+
 </Project>
