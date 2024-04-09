@@ -1,10 +1,15 @@
 var builder = WebApplication.CreateBuilder(args);
 
+const string configureFilePath = "/etc/almond/acebeat/gateway/appsettings.json";
+
+if (!builder.Environment.IsDevelopment() && !File.Exists(configureFilePath))
+    Utilities.CopyConfigureFile("./appsettings.json", configureFilePath);
+
 builder.AddApplicationServices();
 
 IConfigurationSection configuration = !builder.Environment.IsDevelopment() ? builder
            .Configuration
-           .AddJsonFile("/etc/almond/acebeat/gateway/appsettings.json")
+           .AddJsonFile(configureFilePath)
            .Build()
            .GetSection("ReverseProxy") : builder
            .Configuration
