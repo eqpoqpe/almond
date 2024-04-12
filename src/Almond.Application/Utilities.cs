@@ -1,6 +1,4 @@
-﻿using System.IO;
-
-namespace Almond.Application.Utilities;
+﻿namespace Almond.Application.Utilities;
 
 public static class Utilities
 {
