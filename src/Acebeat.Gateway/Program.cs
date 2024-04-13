@@ -1,6 +1,6 @@
 var builder = WebApplication.CreateBuilder(args);
 
-const string configureFilePath = "/etc/almond/acebeat/gateway/appsettings.json";
+const string configureFilePath = "/etc/almond/gateway/appsettings.json";
 
 if (!builder.Environment.IsDevelopment() && !File.Exists(configureFilePath))
     Utilities.CopyConfigureFile("./appsettings.json", configureFilePath);
